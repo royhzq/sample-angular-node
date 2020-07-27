@@ -3,16 +3,16 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <body>
 
-<div ng-app="chatbotData" ng-controller="ctrl"> 
+<div ng-app="chatbotData" ng-controller="ctrl">
 
 <h1>Data from DB</h1>
 
 <p>Raw Data</p>
 
-<pre>{{results}}</pre>
+<pre>{{temp}}</pre>
 
-<p>Result 1: <strong>{{ results.result_1 }}</strong></p>
-<p>Result 2: <strong>{{ results.result_2 }}</strong></p>
+<p>Result 1: <strong>{{ temp.col_1 }}</strong></p>
+<p>Result 2: <strong>{{ temp.col_2 }}</strong></p>
 
 </div>
 
@@ -25,7 +25,7 @@
     app.controller('ctrl', function($scope, $http) {
       $http.get("/api")
       .then(function(response) {
-          $scope.results = response.data;
+          $scope.temp = response.data;
       });
     });
 </script>
