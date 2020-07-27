@@ -19,21 +19,20 @@ http.createServer(function (req, res) {
         // Make your DB calls here
         // Prepare your data here and return JSON
         // results below is an example of data to render into UI
-
-
-	sql.connect(config, function(err) {
-		if (err) {
-			console.log(err);
-		}
-		var req = new sql.Request();
-		req.query('SELECT * FROM Response', function (err, recordset) {
-			if (err) {
-				console.log(err);
-			}
-			res.writeHead(200, {'Content-Type': 'application/json'});
-			res.end(JSON.stringify(recordset));
-		});
-	});
+    
+    	sql.connect(config, function(err) {
+    		if (err) {
+    			console.log(err);
+    		}
+    		var req = new sql.Request();
+    		req.query('SELECT * FROM Response', function (err, recordset) {
+    			if (err) {
+    			    console.log(err);
+    			}
+    			res.writeHead(200, {'Content-Type': 'application/json'});
+    			res.end(JSON.stringify(recordset));
+    		});
+    	});
 
     } else if (url === '/') {
         // Homepage for yuor UI. URL is root '/'
