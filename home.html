@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="chatbotData" ng-controller="ctrl"> 
+
+<h1>Data from DB</h1>
+
+<p>Raw Data</p>
+
+<pre>{{results}}</pre>
+
+<p>Result 1: <strong>{{ results.result_1 }}</strong></p>
+<p>Result 2: <strong>{{ results.result_2 }}</strong></p>
+
+</div>
+
+<script>
+    // Make a GET API call to /api endpoint in server.js
+    // To get `results` and display in Angular here.
+    // This is an example, your JS should not be inline and
+    // should be called in your Angular src components.
+    var app = angular.module('chatbotData', []);
+    app.controller('ctrl', function($scope, $http) {
+      $http.get("/api")
+      .then(function(response) {
+          $scope.results = response.data;
+      });
+    });
+</script>
+
+</body>
+</html>
