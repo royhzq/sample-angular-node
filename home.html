@@ -9,9 +9,9 @@
 
 <p>Raw Data</p>
 
-<pre>{{temp}}</pre>
+<pre>{{results}}</pre>
 
-<p>Result 1: <strong>{{ temp.col_1 }}</strong></p>
+<p>Result 1: <strong>{{ results.col_1 }}</strong></p>
 <p>Result 2: <strong>{{ temp.col_2 }}</strong></p>
 
 </div>
@@ -25,7 +25,7 @@
     app.controller('ctrl', function($scope, $http) {
       $http.get("/api")
       .then(function(response) {
-          $scope.temp = response.data;
+          $scope.results  = response.data;
       });
     });
 </script>
